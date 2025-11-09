@@ -35,8 +35,5 @@ plt.ylabel('Excess Minority Electron Concentration, dn_p (cm$^{-3}$)')
 plt.title('Excess Minority Electron Concentration vs. Applied Bias')
 plt.grid(True)
 
-# Set Y-axis to logarithmic scale
-#plt.yscale('log')
-
 # Display the plot
 plt.show()
