@@ -1,0 +1,39 @@
+#A Python Program to Compute Excess Minority Hole Concentration in a p-n Junction: Shockley Boundary Condition
+#ID: SH-2025-V04-02
+#Contributors: Deepjyoti Deb, Rupam Goswami
+#Affiliation: TSDL, Department of Electronics and Communication Engineering, Tezpur University
+#This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International
+
+#NOTE: Minority hole concentration is computed in n-type region in which holes are minority carriers.
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+#Constants
+q = 1.6e-19          #Electronic charge (C)
+n_i = 1.5e10         #Intrinsic carrier concentration in silicon (cm^-3)
+Nd = 1e18            #Doping concentration (cm^-3)
+k = 8.617e-5         #Boltzmann constant (eV/K)
+T = 300              #Temperature (K)
+
+#Applied Bias
+V_app=np.linspace(-0.7,0.7,100)    #Range of applied bias across the p-n junction
+
+#Expression of hole (minority carrier) concentration at the edge of the depletion region in n-type region
+p_n=((n_i**2)/Nd)*np.exp(V_app/(k*T))
+
+#Expression of excess hole (minority carrier) concentration at the edge of the n-type region
+dp_n=p_n-((n_i**2)/Nd);
+
+# 2D plot of Minority Hole Concentration vs. Applied Bias
+plt.figure(figsize=(10, 6))
+plt.plot(V_app, dp_n)
+
+# Add labels and title
+plt.xlabel('Applied Bias, V_app (V)')
+plt.ylabel('Excess Minority Hole Concentration, dp_n (cm$^{-3}$)')
+plt.title('Excess Minority Hole Concentration vs. Applied Bias')
+plt.grid(True)
+
+# Display the plot
+plt.show()
