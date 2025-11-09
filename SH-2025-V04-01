@@ -17,7 +17,7 @@ k = 8.617e-5         #Boltzmann constant (eV/K)
 T = 300              #Temperature (K)
 
 #Applied Bias
-V_app=np.linspace(-0.7,0.7,100)    #Range of applied bias across the p-n junction 0 - 5 V
+V_app=np.linspace(-0.7,0.7,100)    #Range of applied bias across the p-n junction
 
 #Expression of electron (minority carrier) concentration at the edge of the p-type region
 n_p=((n_i**2)/Na)*np.exp(V_app/(k*T))
