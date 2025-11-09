@@ -1,0 +1,42 @@
+#A Python Program to Compute Excess Minority Electron Concentration in a p-n Junction: Shockley Boundary Condition
+#ID: SH-2025-V04-01
+#Contributors: Deepjyoti Deb, Rupam Goswami
+#Affiliation: TSDL, Department of Electronics and Communication Engineering, Tezpur University
+#This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International
+
+#NOTE: Minority electron concentration is computed in p-type region in which electrons are minority carriers.
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+#Constants
+q = 1.6e-19          #Electronic charge (C)
+n_i = 1.5e10         #Intrinsic carrier concentration in silicon (cm^-3)
+Na = 1e18            #Doping concentration (cm^-3)
+k = 8.617e-5         #Boltzmann constant (eV/K)
+T = 300              #Temperature (K)
+
+#Applied Bias
+V_app=np.linspace(-0.7,0.7,100)    #Range of applied bias across the p-n junction 0 - 5 V
+
+#Expression of electron (minority carrier) concentration at the edge of the p-type region
+n_p=((n_i**2)/Na)*np.exp(V_app/(k*T))
+
+#Expression of excess electron (minority carrier) concentration at the edge of the p-type region
+dn_p=n_p-((n_i**2)/Na);#
+
+# 2D plot of Minority Electron Concentration vs. Applied Bias
+plt.figure(figsize=(10, 6))
+plt.plot(V_app, n_p)
+
+# Add labels and title
+plt.xlabel('Applied Bias, V_app (V)')
+plt.ylabel('Excess Minority Electron Concentration, dn_p (cm$^{-3}$)')
+plt.title('Excess Minority Electron Concentration vs. Applied Bias')
+plt.grid(True)
+
+# Set Y-axis to logarithmic scale
+plt.yscale('log')
+
+# Display the plot
+plt.show()
