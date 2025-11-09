@@ -17,7 +17,7 @@ k = 8.617e-5         #Boltzmann constant (eV/K)
 T = 300              #Temperature (K)
 
 #Applied Bias
-V_app=np.linspace(-0.7,0.7,100)    #Range of applied bias across the p-n junction
+V_app=np.linspace(-0.7,0.7,100)    #Range of applied bias across the p-n junction 0 - 5 V
 
 #Expression of electron (minority carrier) concentration at the edge of the p-type region
 n_p=((n_i**2)/Na)*np.exp(V_app/(k*T))
@@ -27,7 +27,7 @@ dn_p=n_p-((n_i**2)/Na);#
 
 # 2D plot of Minority Electron Concentration vs. Applied Bias
 plt.figure(figsize=(10, 6))
-plt.plot(V_app, n_p)
+plt.plot(V_app, dn_p)
 
 # Add labels and title
 plt.xlabel('Applied Bias, V_app (V)')
@@ -36,7 +36,7 @@ plt.title('Excess Minority Electron Concentration vs. Applied Bias')
 plt.grid(True)
 
 # Set Y-axis to logarithmic scale
-plt.yscale('log')
+#plt.yscale('log')
 
 # Display the plot
 plt.show()
