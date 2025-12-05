@@ -1,0 +1,63 @@
+#A Python Program to Compute Diffusion Length of Minority Carriers in a p-n Junction
+#ID: SH-2025-V04-03
+#Contributors: Deepjyoti Deb, Rupam Goswami
+#Affiliation: TSDL, Department of Electronics and Communication Engineering, Tezpur University
+#This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+#Constants
+D = 12          #diffusion constant (cm^2/s): replace essential values for electrons/ holes;
+                #Keeping it constant while varying the minority carrier lifetime, tau (see below)
+
+#Minority Carrier Lifetime (s)
+tau=np.logspace(-10,-6,10)    #Range (same for electrons/ holes)
+
+#Expression of diffusion length
+L=np.sqrt(D*tau);
+
+# 2D plot of Diffusion Length vs. Minority Carrier Lifetime
+plt.figure(figsize=(10, 6))
+plt.plot(tau, L)
+
+# Add labels and title
+plt.xlabel('Time, tau (s)')
+plt.xscale('log')
+plt.ylabel('Diffusion Length, L (cm)')
+plt.yscale('log')
+plt.title('Diffusion Length vs. Minority Carrier Lifetime')
+plt.grid(True)
+
+# Add a text box inside the plot
+plt.text(1e-10, 0.003, 'D = 12 $cm^{2}/s$', fontsize=12,
+         bbox=dict(boxstyle='round,pad=0.5', fc='white', ec='k', lw=1, alpha=0.5))
+
+# Display the plot
+plt.show()
+
+
+#Minority Carrier Lifetime (s)
+tau = 1e-6;               #Keeping it constant while varying the diffusion constant, D (see below)
+
+#Diffusion Constant (cm^2/s)
+D=np.linspace(1,20,40)    #Range (same for electrons/ holes)
+
+#Expression of diffusion length
+L=np.sqrt(D*tau);
+
+# 2D plot of Diffusion Length vs. Diffusion Constant
+plt.figure(figsize=(10, 6))
+plt.plot(D, L)
+
+# Add labels and title
+plt.xlabel('Diffusion Constant, D ($cm^{2}/s$)')
+plt.ylabel('Diffusion Length, L (cm)')
+plt.yscale('log')
+plt.title('Diffusion Length vs. Diffusion Constant')
+plt.grid(True)
+plt.text(2.5, 0.004, '$tau = 10^{-6}$ s', fontsize=12,
+         bbox=dict(boxstyle='round,pad=0.5', fc='white', ec='k', lw=1, alpha=0.5))
+
+# Display the plot
+plt.show()
