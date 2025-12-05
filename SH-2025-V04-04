@@ -1,0 +1,76 @@
+#A Python Program to Compute Excess Minority Carrier Concentration in a p-n Junction: Low Level Injection
+#ID: SH-2025-V04-04
+#Contributors: Deepjyoti Deb, Rupam Goswami
+#Affiliation: TSDL, Department of Electronics and Communication Engineering, Tezpur University
+#This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International
+
+#NOTE: Minority hole concentration is computed in n-type region in which holes are minority carriers.
+#Minority electron concentration is computed in p-type region in which electrons are minority carriers.
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+#Constants
+q = 1.6e-19          #Electronic charge (C)
+n_i = 1.5e10         #Intrinsic carrier concentration in silicon (cm^-3)
+Nd = 1e18            #Doping concentration (donor) in n-type region (cm^-3)
+Na = 1e18            #Doping concentration (acceptor) in p-type region (cm^-3)
+k = 8.617e-5         #Boltzmann constant (eV/K)
+T = 300              #Temperature (K)
+V_app=0.6            #Applied Bias (V)
+D_n=12               #Diffusion Constant for electrons in p-type region (cm^2/s)
+D_p=10               #Diffusion Constant for holes in n-type region (cm^2/s)
+tau_n=1e-6           #Minority Carrier Lifetime for electrons in p-type region (s)
+tau_p=1e-6           #Minority Carrier Lifetime for holes in n-type region (s)
+
+#Length
+x_p=np.linspace(-7e-3,0,100)    #Position along the p-type region, edge of depletion region at 0, assumed to be smaller than the scale of xp (A1)
+x_n=np.linspace(0,7e-3,100)     #Position along the n-type region, edge of depletion region at 0, assumed to be smaller than the scale of xp (A2)
+
+#Description of the assumptions, A1 and A2
+#Here, xn and xp are the depletion region widths in the p-type and n-type regions. Actually, they have a finite width because w_n + w_p = total depletion
+#width at the junction. However, in order to simplify the calculation, and because the order of w_n (or w_p) is quite smaller than the scale of x_n (or x_p),
+#w_n = w_p ~ 0 is taken as a suitable assumption.
+
+# _____________ _____________
+#|             |             |
+#|  p-type     |    n-type   |
+#|_____________|_____________|
+#          w_n, w_p
+#--------------0----------------> x
+
+
+#Expression of electron (minority carrier) concentration at the edge of the depletion region in p-type region
+n_p=((n_i**2)/Na)*np.exp(V_app/(k*T))
+
+#Expression of hole (minority carrier) concentration at the edge of the depletion region in n-type region
+p_n=((n_i**2)/Nd)*np.exp(V_app/(k*T))
+
+#Expression of excess electron (minority carrier) concentration at the edge of the p-type region
+dn_p=n_p-((n_i**2)/Na);
+
+#Expression of excess hole (minority carrier) concentration at the edge of the n-type region
+dp_n=p_n-((n_i**2)/Nd);
+
+#Expression of excess electron (minority carrier) concentration in the p-type region
+L_n=np.sqrt(D_n*tau_n);
+dn_p_x=dn_p*np.exp((x_p)/(L_n))
+
+#Expression of excess hole (minority carrier) concentration in the n-type region
+L_p=np.sqrt(D_p*tau_p);
+dp_n_x=dp_n*np.exp((-x_n)/(L_p))
+
+# 2D plot of Excess Minority Carrier Concentration vs. Position
+plt.figure(figsize=(10, 6))
+plt.plot(x_p, dn_p_x, label='Excess Minority Electron Concentration (p-type)')
+plt.plot(x_n, dp_n_x, label='Excess Minority Hole Concentration (n-type)')
+
+# Add labels and title
+plt.xlabel('Position, x (cm)')
+plt.ylabel('Excess Minority Concentration (cm$^{-3}$)')
+plt.title('Excess Minority Carrier Concentration vs. Position')
+plt.grid(True)
+plt.legend()
+
+# Display the plot
+plt.show()
