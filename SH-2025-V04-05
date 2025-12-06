@@ -63,7 +63,7 @@ dn_p_x=dn_p*np.exp((x_p-w_p)/(L_n))
 L_p=np.sqrt(D_p*tau_p);
 dp_n_x=dp_n*np.exp((-x_n+w_n)/(L_p))
 
-#Minority Carrier Current Densities at the Edges of Depletion Region
+#Minority Carrier Current Densities
 #Minority Carrier Current is dominated by diffusion.
 Jp_n=q*D_p*(1/L_p)*dp_n_x             
 Jn_p=q*D_n*(1/L_n)*dn_p_x
