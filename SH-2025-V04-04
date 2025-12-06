@@ -57,11 +57,11 @@ dp_n=p_n-((n_i**2)/Nd);
 
 #Expression of excess electron (minority carrier) concentration in the p-type region
 L_n=np.sqrt(D_n*tau_n);
-dn_p_x=dn_p*np.exp((x_p)/(L_n))
+dn_p_x=dn_p*np.exp((x_p-w_p)/(L_n))
 
 #Expression of excess hole (minority carrier) concentration in the n-type region
 L_p=np.sqrt(D_p*tau_p);
-dp_n_x=dp_n*np.exp((-x_n)/(L_p))
+dp_n_x=dp_n*np.exp((-x_n+w_n)/(L_p))
 
 # 2D plot of Excess Minority Carrier Concentration vs. Position
 plt.figure(figsize=(10, 6))
