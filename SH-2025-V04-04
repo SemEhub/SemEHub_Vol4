@@ -28,7 +28,7 @@ w_p=0                #Depletion width in p-type region (See assumptions, A1 and 
 
 #Length for plot
 x_p=np.linspace(-7e-3,w_p,100)    #Position along the p-type region, edge of depletion region at 0, assumed to be smaller than the scale of xp (A1)
-x_n=np.linspace(0,w_n,100)     #Position along the n-type region, edge of depletion region at 0, assumed to be smaller than the scale of xp (A2)
+x_n=np.linspace(w_n,7e-3,100)     #Position along the n-type region, edge of depletion region at 0, assumed to be smaller than the scale of xp (A2)
 
 #Description of the assumptions, A1 and A2
 #Here, xn and xp are the depletion region widths in the p-type and n-type regions. Actually, they have a finite width because w_n + w_p = total depletion
