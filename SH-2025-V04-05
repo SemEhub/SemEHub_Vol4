@@ -63,12 +63,12 @@ dn_p_x=dn_p*np.exp((x_p-w_p)/(L_n))
 L_p=np.sqrt(D_p*tau_p);
 dp_n_x=dp_n*np.exp((-x_n+w_n)/(L_p))
 
-#Minority Carrier Current Densities
+#Minority Carrier Current Densities at the Edges of Depletion Region
 #Minority Carrier Current is dominated by diffusion.
 Jp_n=q*D_p*(1/L_p)*dp_n_x             
 Jn_p=q*D_n*(1/L_n)*dn_p_x
 
-# 2D plot of Excess Minority Carrier Concentration vs. Position
+# 2D plot of Minority Carrier Current Density vs. Position
 plt.figure(figsize=(10, 6))
 plt.plot(x_n, Jp_n, label='Hole Current Density in (n-type)')
 plt.plot(x_p, Jn_p, label='Electron Current Density (p-type)')
