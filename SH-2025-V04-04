@@ -6,6 +6,7 @@
 
 #NOTE: Minority hole concentration is computed in n-type region in which holes are minority carriers.
 #Minority electron concentration is computed in p-type region in which electrons are minority carriers.
+#Material/ Bias specific values may be changed as per requirement of the user.
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,13 +14,13 @@ import matplotlib.pyplot as plt
 #Constants
 q = 1.6e-19          #Electronic charge (C)
 n_i = 1.5e10         #Intrinsic carrier concentration in silicon (cm^-3)
-Nd = 1e18            #Doping concentration (donor) in n-type region (cm^-3)
+Nd = 5e17            #Doping concentration (donor) in n-type region (cm^-3)
 Na = 1e18            #Doping concentration (acceptor) in p-type region (cm^-3)
 k = 8.617e-5         #Boltzmann constant (eV/K)
 T = 300              #Temperature (K)
 V_app=0.6            #Applied Bias (V)
 D_n=12               #Diffusion Constant for electrons in p-type region (cm^2/s)
-D_p=10               #Diffusion Constant for holes in n-type region (cm^2/s)
+D_p=12               #Diffusion Constant for holes in n-type region (cm^2/s)
 tau_n=1e-6           #Minority Carrier Lifetime for electrons in p-type region (s)
 tau_p=1e-6           #Minority Carrier Lifetime for holes in n-type region (s)
 
@@ -37,7 +38,7 @@ x_n=np.linspace(0,7e-3,100)     #Position along the n-type region, edge of deple
 #|  p-type     |    n-type   |
 #|_____________|_____________|
 #          w_n, w_p
-#--------------0----------------> x
+#--------------0----------------> Position, x
 
 
 #Expression of electron (minority carrier) concentration at the edge of the depletion region in p-type region
