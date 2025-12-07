@@ -80,7 +80,7 @@ plt.plot(x_n, np.full_like(x_n, J_Total), label='Total Current Density in n-type
 # Add labels and title
 plt.xlabel('Position, x (cm)')
 plt.ylabel('Current Density (A/cm$^{-2}$)')
-plt.title('Total Current Density vs. Position')
+plt.title('Total Current Density vs. Position at V$_{app}$=0.6 V')
 plt.grid(True)
 plt.legend()
 
@@ -128,7 +128,7 @@ plt.figure(figsize=(10, 6))
 plt.plot(V_app, J_Total)
 
 # Add labels and title
-plt.xlabel('Applied Bias, V_${app}$ (V)')
+plt.xlabel('Applied Bias, V$_{app}$ (V)')
 plt.ylabel('Current Density (A/cm$^{-2}$)')
 plt.title('Total Current Density vs. Applied Bias')
 plt.grid(True)
