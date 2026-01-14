@@ -1,7 +1,8 @@
 #A Python Program to Compute Diffusion Length of Minority Carriers in a p-n Junction
 #ID: SH-2025-V04-03
-#Contributors: Deepjyoti Deb, Rupam Goswami
-#Affiliation: TSDL, Department of Electronics and Communication Engineering, Tezpur University
+#Contributors: Deepjyoti Deb[1], Rupam Goswami[2]
+#Affiliation [1]: Department of Electronics and Communication Engineering, SRM IST, Chennai, India
+#Affiliation [2]: TSDL, Department of Electronics and Communication Engineering, Tezpur University, Assam, India
 #This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International
 
 import numpy as np
