@@ -1,7 +1,8 @@
 #A Python Program to Compute Minority Carrier Current Densities in a p-n Junction: Low Level Injection
 #ID: SH-2025-V04-05
-#Contributors: Deepjyoti Deb, Rupam Goswami
-#Affiliation: TSDL, Department of Electronics and Communication Engineering, Tezpur University
+#Contributors: Deepjyoti Deb[1], Rupam Goswami[2]
+#Affiliation [1]: Department of Electronics and Communication Engineering, SRM IST, Chennai, India
+#Affiliation [2]: TSDL, Department of Electronics and Communication Engineering, Tezpur University, Assam, India
 #This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International
 
 #NOTE: Minority hole concentration is computed in n-type region in which holes are minority carriers.
